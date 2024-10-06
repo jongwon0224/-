@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuGuDan</title>
+
+    <style>
+        * {
+            text-align: center;
+        }
+
+        #boxdesign {
+            width: 150px;
+            height: 50px;
+            font-size: 15px;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>직접누르는 계산</h1>
+    <div id="boxdesign">
+        <input type="text" id="box1" placeholder="숫자를 입력하세요">
+        <span>　 x　 </span>
+        <input type="text" id="box2" placeholder="숫자를 입력하세요">
+        <input type="button" value="start" onclick="gugudan()">
+        <br><br>
+        =　
+        <input type="text" id="boxresult" readonly placeholder="결과">
+    </div>
+
+
+    <script>
+        function gugudan() {
+            var box1 = document.getElementById('box1').value;
+            var box2 = document.getElementById('box2').value;
+            var result = box1 * box2;
+            document.getElementById('boxresult').value = result;
+        }
+    </script>
+    <br><br>
+    <form id="design2">
+        <h1>자동 계산</h1>
+        <input type="text" id="auto1" placeholder="숫자를 입력해주세요" oninput="autogugudan()">
+        <span> 　x　 </span>
+        <input type="text" id="auto2" placeholder="숫자를 입력해주세요" oninput="autogugudan()">
+        <br><br>　=　
+
+        <input type="text" id="autoresult" readonly placeholder="결과">
+    </form>
+
+    <script>
+        function autogugudan() {
+            var auto1 = document.getElementById('auto1').value;
+            var auto2 = document.getElementById('auto2').value;
+            if (auto1 !== '' && auto2 !== '') {
+                var autoresult = auto1 * auto2;
+                document.getElementById('autoresult').value = autoresult;
+            } else {
+                document.getElementById('autoresult').value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
