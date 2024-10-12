@@ -1,15 +1,16 @@
+//클래스 생성 후 역할에 맡게 부여//
 //부모 버튼 클래스//
 class originButton {
-    constructor(firstname, secondname, final) {
-        this.firstname = Number(document.getElementById(firstname).value);
-        this.secondname = Number(document.getElementById(secondname).value);
-        this.final = document.getElementById(final);
+    constructor(first, second, third) {
+        this.first = Number(document.getElementById(first).value);
+        this.second = Number(document.getElementById(second).value);
+        this.third = document.getElementById(third);
     }
     test() {
-        if (!isNaN(this.firstname) && !isNaN(this.secondname)) {
-            return this.final.value = this.firstname * this.secondname;
+        if (!isNaN(this.first) && !isNaN(this.second)) {
+            return this.third.value = this.first * this.second;
         } else {
-            return this.final.value = '';
+            return this.third.value = '';
         }
     }
 }
@@ -25,22 +26,51 @@ function autoClick() {
     var automatic = new originButton('auto_btn1','auto_btn2','auto_result');
     automatic.test();
 }
-/* 쉬운방법
-function magictxt () {
-    var writeP = document.getElementById('writeP').value;
-    var txtwrite = document.getElementById('txtwrite');
-    txtwrite.innerHTML = writeP;
+
+
+// txtbox에 입력시 자동으로 p태그에 값 전달!
+//쉬운방법 => 인자, 매개변수 전달
+function magictxt(first,second) {
+    this.first = document.getElementById(first).value;
+    this.second = document.getElementById(second);
+    this.second.innerHTML = this.first;
 }
-*/
+
 // 클래스 사용
-class magic {
+/*
+class autotyping {
     constructor(first, second) {
-        this.first = document.getElementById('writeP').value;
-        this.second = document.getElementById('txtwrite');
+        this.first = document.getElementById(first).value;
+        this.second = document.getElementById(second);
+    }
+    result() {
+        this.second.innerHTML = this.first;
     }
 }
 
 function magictxt () {
-    var magicbox = new magic('writeP','txtwrite');    
-    magicbox.second.innerHTML = magicbox.first;
+    var type1 = new autotyping('writeP','txtwrite');    
+    type1.result();
 }
+*/
+
+// 클래스 상속 사용
+/*
+class autotyping {
+    constructor(first,second) {
+        this.first = document.getElementById(first).value;
+        this.second = document.getElementById(second);
+    }
+}
+
+class autotyping2 extends autotyping{
+    result() {
+        this.second.innerHTML = this.first;
+    }
+}
+
+function magictxt() {
+    var type1 = new autotyping2('writeP','txtwrite');
+    type1.result();
+}
+*/

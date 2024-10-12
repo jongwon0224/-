@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <h1>수동 계산</h1>
     <input type="text" id="btn1" placeholder="숫자를 입력하세요">
     <span>×</span>
@@ -26,7 +25,8 @@
     <input type="text" id="auto_result" placeholder="결과" readonly>
 
     <br><br>
-    <input type="text" id="writeP" placeholder="입력해주세요" oninput="magictxt()">
+    <h2>텍스트 박스에 값 입력하면 P태그에 자동 입력</h2>
+    <input type="text" id="writeP" placeholder="입력해주세요" oninput="magictxt('writeP','txtwrite')">
     <p id="txtwrite"></p>
 </body>
 
